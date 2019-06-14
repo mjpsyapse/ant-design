@@ -16,7 +16,7 @@ declare module 'shallowequal';
 
 declare module 'css-animation*';
 
-declare module 'rc-select';
+declare module '@mjpsyapse/rc-select';
 
 declare module 'rc-cascader';
 
@@ -26,7 +26,7 @@ declare module 'rc-checkbox';
 
 declare module 'rc-radio';
 
-declare module 'rc-dropdown';
+declare module '@mjpsyapse/rc-dropdown';
 
 declare module 'rc-editor-mention';
 

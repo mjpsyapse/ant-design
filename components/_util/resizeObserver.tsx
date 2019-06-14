@@ -1,8 +1,5 @@
 import * as React from 'react';
-import { findDOMNode } from 'react-dom';
 import ResizeObserver from 'resize-observer-polyfill';
-
-type DomElement = Element | null;
 
 interface ResizeObserverProps {
   children?: React.ReactNode;
@@ -12,7 +9,12 @@ interface ResizeObserverProps {
 
 class ReactResizeObserver extends React.Component<ResizeObserverProps, {}> {
   resizeObserver: ResizeObserver | null = null;
+  ref: any;
 
+  constructor(props: ResizeObserverProps) {
+    super(props);
+    this.ref = React.createRef();
+  }
   componentDidMount() {
     this.onComponentUpdated();
   }
@@ -27,7 +29,7 @@ class ReactResizeObserver extends React.Component<ResizeObserverProps, {}> {
 
   onComponentUpdated() {
     const { disabled } = this.props;
-    const element = findDOMNode(this) as DomElement;
+    const element = this.ref.current;
     if (!this.resizeObserver && !disabled && element) {
       // Add resize observer
       this.resizeObserver = new ResizeObserver(this.onResize);
@@ -54,7 +56,10 @@ class ReactResizeObserver extends React.Component<ResizeObserverProps, {}> {
 
   render() {
     const { children = null } = this.props;
-    return children;
+    if (children) {
+      return React.cloneElement(children as React.ReactElement, { ref: this.ref });
+    }
+    return null;
   }
 }
 

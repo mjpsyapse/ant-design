@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
-import ResizeObserver from '../_util/resizeObserver';
 
 import warning from '../_util/warning';
 import {
@@ -274,7 +273,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
     return (
       <div {...props} style={mergedPlaceholderStyle} ref={this.savePlaceholderNode}>
         <div className={className} ref={this.saveFixedNode} style={this.state.affixStyle}>
-          <ResizeObserver onResize={this.updatePosition}>{children}</ResizeObserver>
+          {children}
         </div>
       </div>
     );

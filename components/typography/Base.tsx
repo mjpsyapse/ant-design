@@ -8,7 +8,6 @@ import { withConfigConsumer, ConfigConsumerProps, configConsumerProps } from '..
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 import TransButton from '../_util/transButton';
-import ResizeObserver from '../_util/resizeObserver';
 import raf from '../_util/raf';
 import isStyleSupport from '../_util/styleChecker';
 import Icon from '../icon';
@@ -440,28 +439,26 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
           this.expandStr = expand;
 
           return (
-            <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!rows}>
-              <Typography
-                className={classNames(className, {
-                  [`${prefixCls}-${type}`]: type,
-                  [`${prefixCls}-disabled`]: disabled,
-                  [`${prefixCls}-ellipsis`]: rows,
-                  [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
-                  [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
-                })}
-                style={{
-                  ...style,
-                  WebkitLineClamp: cssLineClamp ? rows : null,
-                }}
-                component={component}
-                setContentRef={this.setContentRef}
-                aria-label={ariaLabel}
-                {...textProps}
-              >
-                {textNode}
-                {this.renderOperations()}
-              </Typography>
-            </ResizeObserver>
+            <Typography
+              className={classNames(className, {
+                [`${prefixCls}-${type}`]: type,
+                [`${prefixCls}-disabled`]: disabled,
+                [`${prefixCls}-ellipsis`]: rows,
+                [`${prefixCls}-ellipsis-single-line`]: cssTextOverflow,
+                [`${prefixCls}-ellipsis-multiple-line`]: cssLineClamp,
+              })}
+              style={{
+                ...style,
+                WebkitLineClamp: cssLineClamp ? rows : null,
+              }}
+              component={component}
+              setContentRef={this.setContentRef}
+              aria-label={ariaLabel}
+              {...textProps}
+            >
+              {textNode}
+              {this.renderOperations()}
+            </Typography>
           );
         }}
       </LocaleReceiver>
