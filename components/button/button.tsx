@@ -6,7 +6,6 @@ import Group from './button-group';
 import omit from 'omit.js';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import Wave from '../_util/wave';
 import { Omit, tuple } from '../_util/type';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
@@ -289,7 +288,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
     const buttonNode = (
       <button
-        {...otherProps as NativeButtonProps}
+        {...(otherProps as NativeButtonProps)}
         type={htmlType}
         className={classes}
         onClick={this.handleClick}
@@ -304,7 +303,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       return buttonNode;
     }
 
-    return <Wave>{buttonNode}</Wave>;
+    return buttonNode;
   };
 
   render() {
