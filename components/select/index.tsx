@@ -119,7 +119,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
   static defaultProps = {
     showSearch: false,
     transitionName: 'slide-up',
-    choiceTransitionName: false,
+    choiceTransitionName: null,
   };
 
   static propTypes = SelectPropTypes;

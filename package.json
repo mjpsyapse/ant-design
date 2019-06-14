@@ -1,6 +1,6 @@
 {
   "name": "@mjpsyapse/antd",
-  "version": "3.19.3",
+  "version": "3.19.3-alpha.1",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React components implementation",
   "homepage": "http://ant.design/",
@@ -46,7 +46,7 @@
     "@ant-design/icons": "~2.0.0",
     "@ant-design/icons-react": "~2.0.1",
     "@mjpsyapse/rc-dropdown": "^2.4.6",
-    "@mjpsyapse/rc-select": "^9.1.6",
+    "@mjpsyapse/rc-select": "^9.1.7",
     "@types/react-slick": "^0.23.4",
     "array-tree-filter": "^2.1.0",
     "babel-runtime": "6.x",
